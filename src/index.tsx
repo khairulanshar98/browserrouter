@@ -4,6 +4,6 @@ import './assets/stylesheets/style.scss';
 import { App } from "./components/app";
 
 ReactDOM.render(
-    <App compiler="TypeScript" framework="React" store="Hooks (useContext & useReducer)" routing="react-router-dom"/>,
+    <App compiler="TypeScript" framework="React" store="Hooks (useContext & useReducer)" routing="react-router-dom using browserrouter"/>,
     document.getElementById("root")
 );
