@@ -88,7 +88,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = (props) => {
                     <Button onClick={() => { dispatch({ type: ActionType.CLEAR }); props.history.push(`/`); }} variant="danger" style={{ marginRight: "8px" }}>
                         Back
                 </Button> :
-                    <Link className="btn btn-info" onClick={() => setRecord()} to={`/select/${todo.id}`} variant="info">
+                    <Link className="btn btn-info" onClick={() => setRecord()} to={`/select.html`} variant="info">
                         Select
             </Link>
                 }

@@ -20,7 +20,7 @@ const Main: React.FC<MainProps> = (props) => {
                 <div className="col-sm-4">
                     <TodoAdd {...props} />
                 </div> :
-                <div className="col-sm-12 text-right"><Link className="btn btn-primary btn-link" to="/add">Create New Task</Link></div>
+                <div className="col-sm-12 text-right"><Link className="btn btn-primary btn-link" to="/add.html">Create New Task</Link></div>
             }
             <div className={(todos.records && todos.records.length == 0) ? "col-sm-8" : "col-md-8 col-md-offset-2"}>
                 <TodoList {...props} />
@@ -31,13 +31,11 @@ const Main: React.FC<MainProps> = (props) => {
 
 const LineItem: React.FC<MainProps> = (props): any => {
     const [todos, dispatch] = React.useContext(todoContext);
-    const id: string = props.match.params.id;
-    const index = todos.records.findIndex(todo => todo.id === id);
-    if (index < 0) {
+    if (!todos.record) {
         return (<Redirect to='/' />)
     } else {
         return (
-            (todos.record) ? <TodoListItem todo={todos.record} isSelected={true} {...props} /> : <div><Link className="btn btn-danger" to="/" style={{ marginRight: "8px" }}>Back</Link></div>
+            <TodoListItem todo={todos.record} isSelected={true} {...props} />
         )
     }
 }
@@ -54,8 +52,8 @@ export const App: React.FC<AppProps> = (props) => {
                         <Route exact path="/" render={(props) => (
                             <Main {...props} />
                         )} />
-                        <Route exact path="/add" render={(props) => <div className="col-md-4 col-md-offset-4"><TodoAdd {...props} /></div>} />
-                        <Route path="/select/:id" render={(props) => <div className="col-md-8 col-md-offset-2"><LineItem {...props} /></div>} />
+                        <Route exact path="/add.html" render={(props) => <div className="col-md-4 col-md-offset-4"><TodoAdd {...props} /></div>} />
+                        <Route path="/select.html" render={(props) => <div className="col-md-8 col-md-offset-2"><LineItem {...props} /></div>} />
                     </Switch>
                 </div>
             </Router>
