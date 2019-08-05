@@ -3,7 +3,7 @@ import { TodoListProvider, todoContext } from "../store/todo.store";
 import { TodoAdd } from './todo.add'
 import { TodoList } from './todo.list'
 import { TodoListItem } from './todo.list.item';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 interface AppProps { compiler: string; framework: string; store: string; routing: string; }
 interface MainProps {
@@ -34,12 +34,10 @@ const LineItem: React.FC<MainProps> = (props): any => {
     const id: string = props.match.params.id;
     const index = todos.records.findIndex(todo => todo.id === id);
     if (index < 0) {
-        props.history.push('/');
-        return (<div />)
+        return (<Redirect to='/' />)
     } else {
         return (
-            (todos.record) ? <TodoListItem todo={todos.record} isSelected={true} {...props} /> :
-                <div><Link className="btn btn-danger" to="/" style={{ marginRight: "8px" }}>Back</Link></div>
+            (todos.record) ? <TodoListItem todo={todos.record} isSelected={true} {...props} /> : <div><Link className="btn btn-danger" to="/" style={{ marginRight: "8px" }}>Back</Link></div>
         )
     }
 }
