@@ -20,7 +20,7 @@ const Main: React.FC<MainProps> = (props) => {
                 <div className="col-sm-4">
                     <TodoAdd {...props} />
                 </div> :
-                <div className="col-sm-12 text-right"><Link className="btn btn-primary btn-link" to={`${props.match.url}/add`}>Create New Task</Link></div>
+                <div className="col-sm-12 text-right"><Link className="btn btn-primary btn-link" to={`${props.match.url}add`}>Create New Task</Link></div>
             }
             <div className={(todos.records && todos.records.length == 0) ? "col-sm-8" : "col-md-8 col-md-offset-2"}>
                 <TodoList {...props} />
