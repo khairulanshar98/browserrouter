@@ -55,6 +55,7 @@ export const App: React.FC<AppProps> = (props) => {
 }
 
 export const Home: React.FC<MainProps> = (props) => {
+    debugger
     return (
         <Router >
             <Switch>
