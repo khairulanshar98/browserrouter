@@ -2,7 +2,7 @@ import * as React from 'react';
 
 
 export enum page {
-  PATH = '/docs'
+  PATH = '/docs/'
 }
 
 export interface Todo {
