@@ -11,8 +11,8 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '/docs'),
-        filename: 'js/bundle.min.js',
-        chunkFilename: 'js/vendor.bundle.js',
+        filename: 'js/[name].min.js',
+        chunkFilename: 'js/[name].bundle.js',
         publicPath: '/'
     },
     optimization: {
