@@ -1,5 +1,10 @@
 import * as React from 'react';
 
+
+export enum page {
+  PATH = '/docs'
+}
+
 export interface Todo {
   id: string
   task: string

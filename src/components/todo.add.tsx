@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Form } from 'react-bootstrap';
-import { Todo, ActionType, todoContext } from "../store/todo.store";
+import { Todo, ActionType, todoContext, page } from "../store/todo.store";
 const uuidv4 = require('uuid/v4');
 import { Link } from 'react-router-dom';
 interface MainProps {
@@ -39,7 +39,7 @@ export const TodoAdd: React.FC<MainProps> = (props) => {
                 </Form.Group>
             </Form>
             {todos.records.length ?
-                <Link className="btn btn-danger" to="/" style={{ marginRight: "8px" }}>Back</Link> : null
+                <Link className="btn btn-danger" onClick={() => { props.history.goBack(); }}  style={{ marginRight: "8px" }}>Back</Link> : null
             }
             <button className="btn btn-primary"
                 onClick={e => {
@@ -47,7 +47,7 @@ export const TodoAdd: React.FC<MainProps> = (props) => {
                     dispatch({ type: ActionType.CREATE, data: newTask });
                     setTask('');
                     setDescription('');
-                    props.history.push('/')
+                    props.history.push(`${page.PATH}`)
                 }}>Add</button>
         </div >
     )

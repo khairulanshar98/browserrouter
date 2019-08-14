@@ -85,10 +85,10 @@ export const TodoListItem: React.FC<TodoListItemProps> = (props) => {
                     </Button>
                 }
                 {props.isSelected ?
-                    <Button onClick={() => { dispatch({ type: ActionType.CLEAR }); props.history.push(`/`); }} variant="danger" style={{ marginRight: "8px" }}>
+                    <Button onClick={() => { dispatch({ type: ActionType.CLEAR }); props.history.goBack(); }} variant="danger" style={{ marginRight: "8px" }}>
                         Back
                 </Button> :
-                    <Link className="btn btn-info" onClick={() => setRecord()} to={`/select`} variant="info">
+                    <Link className="btn btn-info" onClick={() => setRecord()} to={`${props.match.url}/select`} variant="info">
                         Select
             </Link>
                 }
