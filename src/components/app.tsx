@@ -59,8 +59,8 @@ export const Home: React.FC<MainProps> = (props) => {
         <Router >
             <Switch>
                 <Route exact path={`${props.match.path}`} component={Main} />
-                <Route path={`${props.match.path}/add`} render={(props) => <div className="col-md-4 col-md-offset-4"><TodoAdd {...props} /></div>} />
-                <Route path={`${props.match.path}/select`} render={(props) => <div className="col-md-8 col-md-offset-2"><LineItem {...props} /></div>} />
+                <Route path={`${props.match.path}add`} render={(props) => <div className="col-md-4 col-md-offset-4"><TodoAdd {...props} /></div>} />
+                <Route path={`${props.match.path}select`} render={(props) => <div className="col-md-8 col-md-offset-2"><LineItem {...props} /></div>} />
                 <Route render={() => <Redirect to={page.PATH} />} />
             </Switch>
         </Router>
